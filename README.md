@@ -42,12 +42,29 @@ advrelease v1.0.0 by Usman Saif
 
 ---
 
+## ⚡ Quick Start
+
+Just add `release.sh` into your project root and start automatically managing semantic versioning.
+
+```bash
+# Download the script
+curl -fsSL https://raw.githubusercontent.com/usmansaif/semantic-version-release-cli/master/release.sh -o release.sh
+
+# Make it executable
+chmod +x release.sh
+
+# Run it!
+./release.sh
+```
+
+---
+
 ## 📦 Installation
 
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/your-username/advrelease.git
+git clone https://github.com/usmansaif/semantic-version-release-cli.git
 cd advrelease
 chmod +x release.sh
 ```
@@ -100,13 +117,24 @@ Use arrow keys to select release type:
 
 ## 🔐 GitHub Authentication
 
-If not already authenticated:
+The tool automatically checks your authentication status. If not already authenticated, it will guide you through the process:
 
-```bash
-gh auth login
+```text
+04 Authenticating GitHub
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: XXXX-XXXX
+Press Enter to open https://github.com/login/device in your browser... 
+Opening in existing browser session.
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as usmansaif
+   ✓ GitHub authenticated
 ```
-
-The tool will automatically prompt if required.
 
 ---
 
@@ -121,6 +149,15 @@ The tool will automatically prompt if required.
 7. Creates Git tag
 8. Pushes branch + tag
 9. Publishes GitHub release
+
+---
+
+## 🏆 Best Practices
+
+* **Auto Authentication**: Log in once with your GitHub account for a completely automated release flow.
+* **Hassle-Free Versioning**: Use the interactive UI for a smooth, mistake-proof experience.
+* **Verify First**: Utilize the dry-run mode to confirm version bumps before they go live.
+* **Repository Health**: Always start with a clean working tree for the most reliable results.
 
 ---
 

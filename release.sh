@@ -181,7 +181,7 @@ gui_menu() {
     fi
   fi
 
-  clear
+  clear 2>/dev/null || true
   banner
 
   choice=$(gum choose \
@@ -234,8 +234,8 @@ install_gh() {
 
   if command -v apt >/dev/null 2>&1; then
 
-    sudo apt update >/dev/null 2>&1
-    sudo apt install gh -y >/dev/null 2>&1
+    sudo apt update >/dev/null 2>&1 || true
+    sudo apt install gh -y >/dev/null 2>&1 || true
 
   elif command -v brew >/dev/null 2>&1; then
 
@@ -357,7 +357,7 @@ fi
 # --------------------------------------------------------------
 # Banner
 # --------------------------------------------------------------
-clear
+clear 2>/dev/null || true
 banner
 
 # --------------------------------------------------------------
