@@ -161,9 +161,9 @@ advrelease/
 ## 👤 Author
 
 **Usman Saif**
-Email: [usman.saif22@gmail.com](mailto:usman.saif22@gmail.com)
-Website: https://usmansaif.com
-GitHub: https://github.com/usmansaif/
+- Email: [usman.saif22@gmail.com](mailto:usman.saif22@gmail.com)
+- Website: https://usmansaif.com
+- GitHub: https://github.com/usmansaif/
 
 ---
 
