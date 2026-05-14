@@ -414,48 +414,44 @@ latest_tag=$(git tag --sort=-v:refname | head -n 1)
 ui_step "Calculating next version"
 
 if [ -z "$latest_tag" ]; then
-
-  current_version="0.0.0"
-  new_version="v0.1.0"
-
+  version="0.0.0"
 else
-
   version=${latest_tag#v}
-  current_version=$version
-
-  IFS='.' read -r major minor patch <<< "$version"
-
-  case $bump_type in
-
-    major)
-
-      if [ "$major" -eq 0 ]; then
-        major=1
-        minor=0
-        patch=0
-      else
-        major=$((major + 1))
-        minor=0
-        patch=0
-      fi
-      ;;
-
-    minor)
-
-      minor=$((minor + 1))
-      patch=0
-      ;;
-
-    patch)
-
-      patch=$((patch + 1))
-      ;;
-
-  esac
-
-  new_version="v$major.$minor.$patch"
-
 fi
+
+current_version=$version
+
+IFS='.' read -r major minor patch <<< "$version"
+
+case $bump_type in
+
+  major)
+
+    if [ "$major" -eq 0 ]; then
+      major=1
+      minor=0
+      patch=0
+    else
+      major=$((major + 1))
+      minor=0
+      patch=0
+    fi
+    ;;
+
+  minor)
+
+    minor=$((minor + 1))
+    patch=0
+    ;;
+
+  patch)
+
+    patch=$((patch + 1))
+    ;;
+
+esac
+
+new_version="v$major.$minor.$patch"
 
 composer_version=${new_version#v}
 
